@@ -2,7 +2,6 @@ package com.itatechserviceweb.prototipo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-//import com.itatechserviceweb.prototipo.entities.Order;
 import com.itatechserviceweb.prototipo.entities.User;
 
 
