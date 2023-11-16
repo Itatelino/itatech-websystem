@@ -3,9 +3,9 @@ package com.itatechserviceweb.prototipo.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
+
 import org.springframework.stereotype.Service;
 
 import com.itatechserviceweb.prototipo.entities.User;
@@ -37,9 +37,9 @@ public class UserService {
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
+		} catch (BeanCreationException e) {
 			throw new ResourceNotFoundException(id);
-		} catch (DataIntegrityViolationException e) {
+		} catch (RuntimeException e) {
 			throw new DatabaseException(e.getMessage());
 		}	
 	}

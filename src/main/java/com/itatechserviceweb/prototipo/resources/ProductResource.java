@@ -13,7 +13,7 @@ import com.itatechserviceweb.prototipo.entities.Product;
 import com.itatechserviceweb.prototipo.services.ProductService;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/products")
 public class ProductResource {
 	
 	@Autowired
@@ -25,7 +25,7 @@ public class ProductResource {
 		return ResponseEntity.ok().body(List);
 	}
 	
-	@GetMapping(value = "/(id)")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
 		Product obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
